@@ -7,7 +7,6 @@ CREATE DATABASE "DentoERP"
        LC_COLLATE = 'Spanish_Spain.1252'
        LC_CTYPE = 'Spanish_Spain.1252'
        CONNECTION LIMIT = -1;
-       
 create table comunas (
    comunas_codigo       numeric(6)           not null,
    provincias_codigo    numeric(4)           null,
@@ -22,7 +21,7 @@ create table doctores (
    doctores_telefono    numeric              null,
    doctores_movil       numeric              null,
    doctores_correoelectronico varchar(500)         null,
-   doctores_actualizado time with time zone  not null,
+   doctores_actualizado timestamp with time zone not null,
    doctores_vigente     bool                 not null,
    constraint pk_doctores primary key (doctores_codigo)
 );
@@ -31,7 +30,7 @@ create table empleados (
    empleados_codigo     serial not null,
    personas_run         numeric(9)           null,
    sucursales_codigo    int4                 null,
-   empleados_actualizado time with time zone  not null,
+   empleados_actualizado timestamp with time zone not null,
    empleados_vigente    bool                 not null,
    constraint pk_empleados primary key (empleados_codigo)
 );
@@ -40,7 +39,7 @@ create table empresas (
    empresas_codigo      serial not null,
    personas_run         numeric(9)           null,
    empresas_giro        text                 null,
-   empresas_actualizado time with time zone  null,
+   empresas_actualizado timestamp with time zone null,
    empresas_vigente     bool                 null,
    constraint pk_empresas primary key (empresas_codigo)
 );
@@ -56,7 +55,7 @@ create table pacientes (
    pacientes_titular    bool                 not null,
    pac_pacientes_codigo int4                 null,
    comunas_codigo       numeric(6)           null,
-   pacientes_actualizado time with time zone  not null,
+   pacientes_actualizado timestamp with time zone not null,
    pacientes_vigente    bool                 not null,
    constraint pk_pacientes primary key (pacientes_codigo)
 );
@@ -64,7 +63,7 @@ create table pacientes (
 create table perfiles (
    perfiles_codigo      serial not null,
    perfiles_nombre      varchar(100)         not null,
-   perfiles_actualizado time with time zone  not null,
+   perfiles_actualizado timestamp with time zone not null,
    perfiles_vigente     bool                 not null,
    constraint pk_perfiles primary key (perfiles_codigo)
 );
@@ -76,7 +75,7 @@ create table personas (
    personas_materno     varchar(50)          null,
    personas_nombres     varchar(150)         not null,
    personas_fechanacimiento date                 null,
-   personas_actualizado time with time zone  not null,
+   personas_actualizado timestamp with time zone not null,
    personas_vigente     bool                 not null,
    constraint pk_personas primary key (personas_run)
 );
@@ -103,7 +102,7 @@ create table sucursales (
    sucursales_telefono  numeric              null,
    sucursales_correoelectronico varchar(500)         null,
    sucursales_esmatriz  bool                 null,
-   sucursales_actualizado time with time zone  null,
+   sucursales_actualizado timestamp with time zone null,
    sucursales_vigente   bool                 null,
    constraint pk_sucursales primary key (sucursales_codigo)
 );
@@ -114,7 +113,7 @@ create table usuarios (
    personas_run         numeric(9)           null,
    usuarios_apodo       varchar(25)          not null,
    usuarios_clave       text                 not null,
-   usuarios_actualizado time with time zone  not null,
+   usuarios_actualizado timestamp with time zone not null,
    usuarios_vigente     bool                 not null,
    constraint pk_usuarios primary key (usuarios_codigo)
 );
@@ -183,3 +182,4 @@ alter table usuarios
    add constraint fk_usuarios_fk_usuari_personas foreign key (personas_run)
       references personas (personas_run)
       on delete restrict on update restrict;
+
