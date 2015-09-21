@@ -1,6 +1,6 @@
 --DUMP BD DENTOERP
 
-INSERT INTO `regiones` (`regiones_codigo`, `regiones_nombre`, `regiones_ISO_3166_2_CL`) VALUES
+INSERT INTO regiones (regiones_codigo, regiones_nombre, regiones_ISO_3166_2_CL) VALUES
 (1, 'Tarapacá', 'CL-TA'),
 (2, 'Antofagasta', 'CL-AN'),
 (3, 'Atacama', 'CL-AT'),
@@ -17,7 +17,7 @@ INSERT INTO `regiones` (`regiones_codigo`, `regiones_nombre`, `regiones_ISO_3166
 (14, 'Región de Los Ríos', 'CL-LR'),
 (15, 'Arica y Parinacota', 'CL-AP');
 
-INSERT INTO `provincias` (`provincias_codigo`, `provincias_nombre`, `regiones_codigo`) VALUES
+INSERT INTO provincias (provincias_codigo, provincias_nombre, regiones_codigo) VALUES
 (11, 'Iquique', 1),
 (14, 'Tamarugal', 1),
 (21, 'Antofagasta', 2),
@@ -73,7 +73,7 @@ INSERT INTO `provincias` (`provincias_codigo`, `provincias_nombre`, `regiones_co
 (151, 'Arica', 15),
 (152, 'Parinacota', 15);
 
-INSERT INTO `comunas` (`comunas_codigo`, `comunas_nombre`, `provincias_codigo`) VALUES
+INSERT INTO comunas (comunas_codigo, comunas_nombre, provincias_codigo) VALUES
 (1101, 'Iquique', 11),
 (1107, 'Alto Hospicio', 11),
 (1401, 'Pozo Almonte', 14),
