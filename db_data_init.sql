@@ -420,3 +420,36 @@ INSERT INTO comunas (comunas_codigo, comunas_nombre, provincias_codigo) VALUES
 (15102, 'Camarones', 151),
 (15201, 'Putre', 152),
 (15202, 'General Lagos', 152);
+
+INSERT INTO perfiles (perfiles_codigo, perfiles_nombre, perfiles_actualizado, perfiles_vigente) VALUES
+(1, 'super usuario', '2000-01-01 00:00:00', verdadero),
+(2, 'gerencia', '2000-01-01 00:00:00', verdadero),
+(3, 'administrativo', '2000-01-01 00:00:00', verdadero),
+(4, 'secretaria', '2000-01-01 00:00:00', verdadero),
+(5, 'dentista', '2000-01-01 00:00:00', verdadero),
+(6, 'paciente', '2000-01-01 00:00:00', verdadero);
+
+INSERT INTO personas (personas_run, personas_natural, personas_paterno, personas_materno, personas_nombres, personas_fechaNacimiento, personas_actualizado, personas_vigente) VALUES
+(1, false, NULL, NULL, 'vitaldent pruebas', NULL, '2000-01-01 00:00:00', verdadero),
+(2, true, 'demo', 'demo', 'super usuario', NULL, '2000-01-01 00:00:00', verdadero),
+(3, true, 'demo', 'demo', 'usuario gerencia', NULL, '2000-01-01 00:00:00', verdadero),
+(4, true, 'demo', 'demo', 'usuario administrativo', NULL, '2000-01-01 00:00:00', verdadero),
+(5, true, 'demo', 'demo', 'usuario secretaria', NULL, '2000-01-01 00:00:00', verdadero),
+(6, true, 'demo', 'demo', 'usuario dentista', NULL, '2000-01-01 00:00:00', verdadero),
+(7, true, 'demo', 'demo', 'usuario paciente', NULL, '2000-01-01 00:00:00', verdadero);
+
+INSERT INTO usuarios (usuarios_codigo, perfiles_codigo, personas_run, usuarios_apodo, usuarios_clave, usuarios_actualizado, usuarios_vigente) VALUES
+(1, 1, 2, 'root','(encriptar)', '2000-01-01 00:00:00', verdadero),
+(2, 2, 3, 'gerencia','(encriptar)', '2000-01-01 00:00:00', verdadero),
+(3, 3, 4, 'admin','(encriptar)', '2000-01-01 00:00:00', verdadero),
+(4, 4, 5, 'secretaria','(encriptar)', '2000-01-01 00:00:00', verdadero),
+(5, 5, 6, 'dentista','(encriptar)', '2000-01-01 00:00:00', verdadero),
+(6, 6, 7, 'paciente','(encriptar)', '2000-01-01 00:00:00', verdadero);
+
+INSERT INTO empresas(empresas_codigo, personas_run, empresas_giro, empresas_actualizado, empresas_vigente) VALUES 
+(1, 1, 'servicios odontológicos', '2000-01-01 00:00:00', verdadero);
+
+INSERT INTO sucursales(sucursales_codigo, sucursales_direccion, empresas_codigo, comunas_codigo, sucursales_telefono, sucursales_correoElectronico, sucursales_esMatriz, sucursales_actualizado, sucursales_vigente) VALUES
+(1, 'av. siempreviva 123', 1, 4101, 555000, 'pruebas@correo.com', true, '2000-01-01 00:00:00', true);
+
+
