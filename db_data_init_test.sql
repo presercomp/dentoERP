@@ -439,12 +439,12 @@ INSERT INTO personas (personas_run, personas_natural, personas_paterno, personas
 (7, true, 'demo', 'demo', 'usuario paciente', NULL, '2000-01-01 00:00:00', true);
 
 INSERT INTO usuarios (usuarios_codigo, perfiles_codigo, personas_run, usuarios_apodo, usuarios_clave, usuarios_actualizado, usuarios_vigente) VALUES
-(1, 1, 2, 'root','$1$GIycv7dw$mrENd6S4JJVIke7jHFRwp.', '2000-01-01 00:00:00', true),
-(2, 2, 3, 'gerencia','$1$QkwghQc3$tNXHLyM.6ckGF/G/QX9Cj0', '2000-01-01 00:00:00', true),
-(3, 3, 4, 'admin','$1$nDNFkYSK$pnR4iF.VnGNMbcoC1gbpq1', '2000-01-01 00:00:00', true),
-(4, 4, 5, 'secretaria','$1$8hfVCDxa$2RzMZhkyu0RkJ61QBQRdY/', '2000-01-01 00:00:00', true),
-(5, 5, 6, 'dentista','$1$sWM1rXQS$I3X0cF9wWxSf5xN0DLZfR/', '2000-01-01 00:00:00', true),
-(6, 6, 7, 'paciente','$1$vRAYcnnx$TIzwn4CyZXWQMNFSLTuVA0', '2000-01-01 00:00:00', true);
+(1, 1, 2, 'root','$2y$10$fmL7FDX6rJdONq7OP9GVL.TMJOJueZBx8xkeKjnbWcBUu5zvXFx5m', '2000-01-01 00:00:00', true),
+(2, 2, 3, 'gerencia','$2y$10$o0ufgM7yuWdc91y7cakiOOgNGYskFA3M6Y5fng6TFRacPxKNB0CdS', '2000-01-01 00:00:00', true),
+(3, 3, 4, 'admin','$2y$10$1kIchWc1ywTWE6b5WB0/L.0U3xzZ5uuLdNnIJQqAx11g0ooe9l8cm', '2000-01-01 00:00:00', true),
+(4, 4, 5, 'secretaria','$2y$10$0EavZa904lZbSsiAnASrVeRBPtv1mVMp5.aFVbaiN/.p8iTmmZ8ie', '2000-01-01 00:00:00', true),
+(5, 5, 6, 'dentista','$2y$10$GYL/Tg6EMnqysfFWEiFb5.pA5Osuf8mGfoWplNl5wbpu2khUN3246', '2000-01-01 00:00:00', true),
+(6, 6, 7, 'paciente','$2y$10$23v5526vulcnsIkjGkgHOu9BYvVeqkNwdiXT9zC/a4nWceFockqLa', '2000-01-01 00:00:00', true);
 
 INSERT INTO empresas(empresas_codigo, personas_run, empresas_giro, empresas_actualizado, empresas_vigente) VALUES 
 (1, 1, 'servicios odontológicos', '2000-01-01 00:00:00', true);
