@@ -8,26 +8,6 @@ CREATE DATABASE "DentoERP"
        LC_CTYPE = 'Spanish_Spain.1252'
        CONNECTION LIMIT = -1;
        
-drop table comunas;
-
-drop table doctores;
-
-drop table empleados;
-
-drop table empresas;
-
-drop table pacientes;
-
-drop table personas;
-
-drop table provincias;
-
-drop table regiones;
-
-drop table sucursales;
-
-drop table usuarios;
-
 create table comunas (
    comunas_codigo       numeric(6)           not null,
    provincias_codigo    numeric(4)           null,
@@ -42,8 +22,8 @@ create table doctores (
    doctores_telefono    numeric              null,
    doctores_movil       numeric              null,
    doctores_correoelectronico varchar(500)         null,
-   doctores_actualizado date                 null,
-   doctores_vigente     bool                 null,
+   doctores_actualizado date                 not null,
+   doctores_vigente     bool                 not null,
    constraint pk_doctores primary key (doctores_codigo)
 );
 
@@ -51,8 +31,8 @@ create table empleados (
    empleados_codigo     serial not null,
    personas_run         numeric(9)           null,
    sucursales_codigo    int4                 null,
-   empleados_actualizado date                 null,
-   empleados_vigente    bool                 null,
+   empleados_actualizado date                 not null,
+   empleados_vigente    bool                 not null,
    constraint pk_empleados primary key (empleados_codigo)
 );
 
@@ -72,13 +52,21 @@ create table pacientes (
    pacientes_telefono   numeric              null,
    pacientes_movil      numeric              null,
    pacientes_correoelectronico varchar(500)         null,
-   pacientes_fechaingreso date                 null,
-   pacientes_titular    bool                 null,
+   pacientes_fechaingreso date                 not null,
+   pacientes_titular    bool                 not null,
    pac_pacientes_codigo int4                 null,
    comunas_codigo       numeric(6)           null,
-   pacientes_actualizado date                 null,
-   pacientes_vigente    bool                 null,
+   pacientes_actualizado date                 not null,
+   pacientes_vigente    bool                 not null,
    constraint pk_pacientes primary key (pacientes_codigo)
+);
+
+create table perfiles (
+   perfiles_codigo      serial not null,
+   perfiles_nombre      varchar(100)         not null,
+   perfiles_actualizado date                 not null,
+   perfiles_vigente     bool                 not null,
+   constraint pk_perfiles primary key (perfiles_codigo)
 );
 
 create table personas (
@@ -89,7 +77,7 @@ create table personas (
    personas_nombres     varchar(150)         not null,
    personas_fechanacimiento date                 null,
    personas_actualizado date                 not null,
-   personas_vigente     bool                 null,
+   personas_vigente     bool                 not null,
    constraint pk_personas primary key (personas_run)
 );
 
@@ -122,11 +110,12 @@ create table sucursales (
 
 create table usuarios (
    usuarios_codigo      serial not null,
-   empleados_codigo     int4                 null,
-   usuarios_apodo       varchar(25)          null,
-   usuarios_clave       text                 null,
-   usuarios_actualizado date                 null,
-   usuarios_vigente     bool                 null,
+   perfiles_codigo      int4                 null,
+   personas_run         numeric(9)           null,
+   usuarios_apodo       varchar(25)          not null,
+   usuarios_clave       text                 not null,
+   usuarios_actualizado date                 not null,
+   usuarios_vigente     bool                 not null,
    constraint pk_usuarios primary key (usuarios_codigo)
 );
 
@@ -186,7 +175,12 @@ alter table sucursales
       on delete cascade on update cascade;
 
 alter table usuarios
-   add constraint fk_usuarios_fk_usuari_empleado foreign key (empleados_codigo)
-      references empleados (empleados_codigo)
+   add constraint fk_usuarios_fk_usuari_perfiles foreign key (perfiles_codigo)
+      references perfiles (perfiles_codigo)
+      on delete restrict on update restrict;
+
+alter table usuarios
+   add constraint fk_usuarios_fk_usuari_personas foreign key (personas_run)
+      references personas (personas_run)
       on delete restrict on update restrict;
 
