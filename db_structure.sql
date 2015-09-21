@@ -42,7 +42,7 @@ create table doctores (
    doctores_telefono    numeric              null,
    doctores_movil       numeric              null,
    doctores_correoelectronico varchar(500)         null,
-   doctores_actualizado timestamp            null,
+   doctores_actualizado date                 null,
    doctores_vigente     bool                 null,
    constraint pk_doctores primary key (doctores_codigo)
 );
@@ -51,7 +51,7 @@ create table empleados (
    empleados_codigo     serial not null,
    personas_run         numeric(9)           null,
    sucursales_codigo    int4                 null,
-   empleados_actualizado timestamp            null,
+   empleados_actualizado date                 null,
    empleados_vigente    bool                 null,
    constraint pk_empleados primary key (empleados_codigo)
 );
@@ -60,7 +60,7 @@ create table empresas (
    empresas_codigo      serial not null,
    personas_run         numeric(9)           null,
    empresas_giro        text                 null,
-   empresas_actualizado timestamp            null,
+   empresas_actualizado date                 null,
    empresas_vigente     bool                 null,
    constraint pk_empresas primary key (empresas_codigo)
 );
@@ -76,19 +76,19 @@ create table pacientes (
    pacientes_titular    bool                 null,
    pac_pacientes_codigo int4                 null,
    comunas_codigo       numeric(6)           null,
-   pacientes_actualizado timestamp            null,
+   pacientes_actualizado date                 null,
    pacientes_vigente    bool                 null,
    constraint pk_pacientes primary key (pacientes_codigo)
 );
 
 create table personas (
    personas_run         numeric(9)           not null,
-   personas_natural     bool                 null,
+   personas_natural     bool                 not null,
    personas_paterno     varchar(50)          null,
    personas_materno     varchar(50)          null,
-   personas_nombres     varchar(150)         null,
+   personas_nombres     varchar(150)         not null,
    personas_fechanacimiento date                 null,
-   personas_actualizado timestamp            null,
+   personas_actualizado date                 not null,
    personas_vigente     bool                 null,
    constraint pk_personas primary key (personas_run)
 );
@@ -115,7 +115,7 @@ create table sucursales (
    sucursales_telefono  numeric              null,
    sucursales_correoelectronico varchar(500)         null,
    sucursales_esmatriz  bool                 null,
-   sucursales_actualizado timestamp            null,
+   sucursales_actualizado date                 null,
    sucursales_vigente   bool                 null,
    constraint pk_sucursales primary key (sucursales_codigo)
 );
@@ -124,8 +124,8 @@ create table usuarios (
    usuarios_codigo      serial not null,
    empleados_codigo     int4                 null,
    usuarios_apodo       varchar(25)          null,
-   usuarios_clave       varchar(255)         null,
-   usuarios_actualizado timestamp            null,
+   usuarios_clave       text                 null,
+   usuarios_actualizado date                 null,
    usuarios_vigente     bool                 null,
    constraint pk_usuarios primary key (usuarios_codigo)
 );
@@ -189,7 +189,4 @@ alter table usuarios
    add constraint fk_usuarios_fk_usuari_empleado foreign key (empleados_codigo)
       references empleados (empleados_codigo)
       on delete restrict on update restrict;
-
-
-
 
