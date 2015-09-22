@@ -446,6 +446,9 @@ INSERT INTO usuarios (usuarios_codigo, perfiles_codigo, personas_run, usuarios_a
 (5, 5, 6, 'dentista','$2y$10$GYL/Tg6EMnqysfFWEiFb5.pA5Osuf8mGfoWplNl5wbpu2khUN3246', '2000-01-01 00:00:00', true),
 (6, 6, 7, 'paciente','$2y$10$23v5526vulcnsIkjGkgHOu9BYvVeqkNwdiXT9zC/a4nWceFockqLa', '2000-01-01 00:00:00', true);
 
+INSERT INTO pacientes(pacientes_codigo, personas_run, pacientes_direccion, pacientes_telefono, pacientes_movil, pacientes_correoelectronico, pacientes_fechaingreso, pacientes_titular, pac_pacientes_codigo, comunas_codigo, pacientes_actualizado, pacientes_vigente) VALUES
+(1, 7, 'pasaje fantasias 1313', 2334455, 55500555, 'elpaciente@empresa.nnn', '2000-01-01 00:00:00', true, NULL, 4101, '2000-01-01 00:00:00', true);
+
 INSERT INTO empresas(empresas_codigo, personas_run, empresas_giro, empresas_actualizado, empresas_vigente) VALUES 
 (1, 1, 'servicios odontológicos', '2000-01-01 00:00:00', true);
 
